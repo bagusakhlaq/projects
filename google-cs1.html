@@ -350,6 +350,7 @@
 }
 		/* X-Small devices (portrait phones, less than 576px) */
 	@media only screen and (min-width: 300px) {
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
 		th {font-size: 3.4vw;} 
 		td {font-size: 1.4vw;} 
 		pre, label {font-size: 3vw;}
@@ -358,6 +359,7 @@
 		input[type="checkbox" i] {width: 25px; height: 25px;}
 	}
 	@media only screen and (max-width: 478px) { 
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
 		th {font-size: 3.4vw;} 
 		td {font-size: 1.4vw;} 
 		pre, label {font-size: 3vw;}
@@ -366,6 +368,11 @@
 		input[type="checkbox" i] {width: 25px; height: 25px;}
 	}
 	/* Small devices (landscape phones, less than 768px) */
+	@media only screen and (min-width: 479px) {
+		th, td, pre {
+			font-size: 2vw;
+	    	} 
+		}		
 	@media only screen and (max-width: 767px) { 
 		th, td, pre {
 			font-size: 2vw;
