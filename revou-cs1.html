@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Case Study 1&colon; The Look e-Commerce</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension jebbs.markdown-extended */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+.vscode-light kbd,
+.vscode-dark kbd,
+.vscode-high-contrast kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  vertical-align: middle;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.vscode-light kbd {
+  color: #444d56;
+  background-color: #fafbfc;
+}
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link href="https://fonts.googleapis.com/css?family=Inter" rel='stylesheet'>
+<style>
+    body {
+        font-family:'Inter'
+    }
+    h2, h3, h4, h5, h6 {
+        font-weight: bold;
+    }
+    blockquote {
+        background-color: rgba(220, 220, 220, 0.25);
+        font-weight: 500;
+    }
+    p, li {
+        font-weight: 400;
+    }
+    #port-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 275px;
+        height: auto;
+    }
+    #lands-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 545px;
+        height: auto;
+    }
+    #lands2-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 850px;
+        height: auto;
+    }
+    /* X-Small devices (portrait phones, less than 576px) */
+    /* @media only screen and (min-width: 300px) {
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
+		th {font-size: 3.4vw;} 
+		td {font-size: 1.4vw;} 
+		pre, label {font-size: 3vw;}
+		blockquote {font-size: 1.2vw;}
+		.katex {font-size: 4vw;}
+		input[type="checkbox" i] {width: 25px; height: 25px;}
+	} */
+	@media only screen and (max-width: 478px) { 
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
+		th {font-size: 3.4vw;} 
+		td {font-size: 1.4vw;} 
+		pre, label {font-size: 3vw;}
+		blockquote {font-size: 1.2vw;}
+		.katex {font-size: 4vw;}
+		input[type="checkbox" i] {width: 25px; height: 25px;}
+	}
+    /* Small devices (landscape phones, less than 768px) */
+    @media (max-width: 767px) { 
+        th, td, pre {font-size: 2vw;} 
+        }
+    /* Medium devices (tablets, less than 992px) 
+    @media (max-width: 991.98px) { 
+        th, td, pre {font-size: 3vw;} 
+        } */
+</style>
+<h3 id="case-study-1-the-look-e-commerce">Case Study 1: The Look e-Commerce</h3>
+<h1 id="revou-damc"><strong>RevoU DAMC</strong></h1>
+<h2 id="introduction">Introduction</h2>
+<blockquote>
+<p><strong>Case Study Instructions:</strong></p>
+<ol>
+<li>Look at this data and start thinking. List down 3 trends/points that you think need to be shown:</li>
+</ol>
+<ul>
+<li><code>bigquery-public-data.thelook_ecommerce.orders</code></li>
+<li><code>bigquery-public-data.thelook_ecommerce.order_items</code></li>
+<li><code>bigquery-public-data.thelook_ecommerce.users</code></li>
+<li><code>bigquery-public-data.thelook_ecommerce.products</code></li>
+</ul>
+<ol start="2">
+<li>From here, try to explore the data and make changes, filter, and prepare the data that you need.</li>
+<li>Create some visualizations or dashboard with the best type of chart that you have learned. You could use any tools as you wish.</li>
+<li>Then, make 1-2 slides from the graphs with the insights you got to present your findings to the stakeholders</li>
+</ol>
+</blockquote>
+<h2 id="1-ask">1. Ask</h2>
+<h3 id="11-business-objectives">1.1 Business Objectives</h3>
+<ul>
+<li>How is our users' demographic?</li>
+<li>How is our orders and sales performance?</li>
+<li>What products are most desirable and profitable?</li>
+</ul>
+<h3 id="12-business-tasks">1.2 Business Tasks</h3>
+<p>List down 3 trends/points and create some visualizations or dashboard with the best type of chart that you have learned.</p>
+<h3 id="13-deliverables">1.3 Deliverables</h3>
+<ol>
+<li>A clear statement of the business task</li>
+<li>A description of all data sources used</li>
+<li>Documentation of any cleaning or manipulation of data</li>
+<li>A summary of your analysis</li>
+<li>Supporting visualizations and key findings</li>
+<li>Your top three recommendations based on your analysis</li>
+</ol>
+<h3 id="14-case-study-roadmap">1.4 Case Study Roadmap</h3>
+<table>
+<thead>
+<tr>
+<th><em>Study Case Roadmap - Ask</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guidance Question: <li>What problem you're trying to solve?</li>Create a dashboard about users' demographic and business performance covering orders, sales, and products. <br><br> <li>How's your knowledge can make a business decision?</li>All acquired knowledge in further analysis will be shown as a finding report.</td>
+</tr>
+<tr>
+<td>Key Tasks: <li>Identified business task(s)</li><li>Considered the Stakeholder(s)</li></td>
+</tr>
+<tr>
+<td>Result <li>A clear statement about the business task</li></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-prepare">2. Prepare</h2>
+<h3 id="21-work-steps">2.1 Work Steps</h3>
+<p>The data required available in BigQuery Public Data marketplace. This service is included in free Google BigQuery account, so this can be accessed directly in BigQuery without other preparing methods. The Look e-Commerce is a fictitious company developed by Google Looker team. Furthermore, the contents of this dataset are fully synthetic.</p>
+<p>Dataset contains detail information about customers, products, orders, logistics, web events, and digital marketing campaigns. Speaking of credibility, since this is a primary source data, the data consider as credible. As mentioned before, this dataset contains detail information about customers such as name, age, gender, and address; privacy aspect must be regulated more strictly. In conclusion, this dataset is well-formatted.</p>
+<p>Details on data type for each table shown below:</p>
+<table>
+<caption id="orderstable"><strong>Orders Table</strong></caption>
+<thead>
+<tr>
+<th>#</th>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>order_id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>user_id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>status</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>gender</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>created_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>returned_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>shipped_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>delivered_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>num_of_item</td>
+<td>INT</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption id="orderitemstable"><strong>Order Items Table</strong></caption>
+<thead>
+<tr>
+<th>#</th>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>order_id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>user_id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>product_id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>inventory_item_id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>status</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>created_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>shipped_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>delivered_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>10.</td>
+<td>returned_at</td>
+<td>DATETIME</td>
+</tr>
+<tr>
+<td>11.</td>
+<td>sale_of_price</td>
+<td>FLOAT</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption id="userstable"><strong>Users Table</strong></caption>
+<thead>
+<tr>
+<th>#</th>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>first_name</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>last_name</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>email</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>age</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>gender</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>state</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>street_address</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>postal_code</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>10.</td>
+<td>city</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>11.</td>
+<td>country</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>12.</td>
+<td>latitude</td>
+<td>FLOAT</td>
+</tr>
+<tr>
+<td>13.</td>
+<td>longitude</td>
+<td>FLOAT</td>
+</tr>
+<tr>
+<td>14.</td>
+<td>traffic_source</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>15.</td>
+<td>created_at</td>
+<td>DATE</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption id="productstable"><strong>Products Table</strong></caption>
+<thead>
+<tr>
+<th>#</th>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>id</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>cost</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>category</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>name</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>brand</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>retail_price</td>
+<td>FLOAT</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>department</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>sku</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>distribution_center_id</td>
+<td>INT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-case-study-roadmap">2.2 Case Study Roadmap</h3>
+<table>
+<thead>
+<tr>
+<th><em>Study Case Roadmap - Prepare</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guidance Question: <li>Where is your data located?</li>Dataset is available in BigQuery Public Data marketplace.<br><br> <li>How is the data organized?</li>The data is stored as dataset and hosted in BigQuery. <br><br> <li>Are there issues with bias or credibility in this data? Does your data <strong>ROCCC</strong>?</li>There is no bias since this is a primary data, therefore it is credible, too. The data is ROCCC: <ul><li><strong>Reliable</strong>: The data is acquired from the The Look e-Commerce database in BigQuery.</li> <li><strong>Original</strong>: Data is gained from primary source.</li><li><strong>Comprehensive</strong>: The data is already provided to answer the business problem.</li><li><strong>Current</strong>: Data was expected to be updated daily, so it is current.</li> <li><strong>Citation</strong>: The data was provided by a highly credible organization (Google Looker Team).</li></ul> <br> <li>How are you addressing licensing, privacy, security, and accessibility?</li>As stated in Google Cloud Platform, all the public datasets are under Apache License 2.0 license. Since this is publicly available, then the data is accessible. But, privacy aspects must be considered strictly. <br><br> <li>How did you verify the data’s integrity?</li>All data has the exact same format. <br><br> <li>How does it help you answer your question?</li>All the information acquired. <br><br> <li>Are there any problems with the data?</li>No, the data is formatted correctly.</td>
+</tr>
+<tr>
+<td>Key Tasks: <ol><li>Identify how it’s organized</li><li>Sort and filter the data</li><li>Determine the credibility of the data</li></ol></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="checkbox190112" checked="true"><label for="checkbox190112">A description of all data sources used</label></td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-process">3. Process</h2>
+<p>This analysis mainly use BigQuery as cloud storage database and Looker Studio as analyzing and visualizing data tools.</p>
+<h3 id="31-cleaning">3.1 Cleaning</h3>
+<p>Since the data was available in BigQuery Public Data marketplace, I ran SQL scripts in BigQuery cloud console. First step I did was check for duplications, to do that I ran this scripts:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> 
+    <span class="hljs-built_in">COUNT</span>([<span class="hljs-keyword">column</span>]) <span class="hljs-operator">-</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> [<span class="hljs-keyword">column</span>]) <span class="hljs-keyword">as</span> dup
+<span class="hljs-keyword">FROM</span>
+    `bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.[table_name]` <span class="hljs-keyword">as</span> [alias];
+</code></pre>
+<p>The result was zero in all four tables. It means there were not any duplications in the table. Then I wanted to check if there was null value in the table using this script:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.[table_name]
+<span class="hljs-keyword">WHERE</span>
+    [column_1] <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">OR</span>
+    [column_2] <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">OR</span>
+    ...;
+</code></pre>
+<p>The result was also zero, meaning that there is no null value in the table. The last step is checking the data consistency. To do this, I ran the SQL script below:</p>
+<pre><code class="language-sql"><span class="hljs-comment">/* 1. CHECKING ID LENGTH DATA. SINCE THE ID DATA TYPE WAS INT64,
+I NEEDED TO CONVERT THE DATA TYPE INTO STRING FIRST. */</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span>
+    LENGTH(<span class="hljs-built_in">CAST</span>([id_column] <span class="hljs-keyword">as</span> STRING)) <span class="hljs-keyword">as</span> len_id
+<span class="hljs-keyword">FROM</span>
+    `bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.[table_name]`
+
+<span class="hljs-comment">/* 2. CHECK FOR CITY, STATE, AND COUNTRY CONSISTENCY*/</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span>
+    [strColumnName]
+<span class="hljs-keyword">FROM</span>
+    `bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.[table_name]`
+</code></pre>
+<p>All data seemed to be cleaned. There were not any duplications, misspelling, or null values. But there were two different countries naming as seen in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Country Name</th>
+<th>Consensual Naming</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>España</td>
+<td>Spain</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Deutschland</td>
+<td>Germany</td>
+</tr>
+</tbody>
+</table>
+<p>Since the dataset cannot be modified (due to limitation and restriction condition by BigQuery), I made a temporary table using WITH AS() statement to modify those country naming into the proper one using CASE statement.</p>
+<pre><code class="language-sql"><span class="hljs-keyword">WITH</span> users_cl <span class="hljs-keyword">AS</span> (
+    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">CASE</span>
+        <span class="hljs-keyword">WHEN</span> country <span class="hljs-operator">=</span> &quot;España&quot; <span class="hljs-keyword">THEN</span> country <span class="hljs-operator">=</span> &quot;Spain&quot;
+        <span class="hljs-keyword">WHEN</span> country <span class="hljs-operator">=</span> &quot;Deutschland&quot; <span class="hljs-keyword">THEN</span> country <span class="hljs-operator">=</span> &quot;Germany&quot;
+    <span class="hljs-keyword">ELSE</span> users_cl <span class="hljs-keyword">END</span>
+)
+</code></pre>
+<p>As a part of data cleaning processes, I checked the email data in users table using SQL script below. The result is email data completely clean.</p>
+<pre><code class="language-sql">  <span class="hljs-keyword">WITH</span> user_temp <span class="hljs-keyword">AS</span> (
+    <span class="hljs-keyword">SELECT</span>
+      id,
+      first_name,
+      last_name,
+      email
+    <span class="hljs-keyword">FROM</span>
+      `bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.users`
+  )
+  <span class="hljs-keyword">SELECT</span>
+    id,
+    first_name,
+    last_name,
+    email,
+    REGEXP_EXTRACT(email, r<span class="hljs-string">&#x27;^(.*?)@&#x27;</span>) <span class="hljs-keyword">as</span> name,
+    <span class="hljs-keyword">LEFT</span>(REGEXP_EXTRACT(email, r<span class="hljs-string">&#x27;^(.*?)@&#x27;</span>), LENGTH(first_name)) <span class="hljs-keyword">as</span> surname,
+    <span class="hljs-keyword">RIGHT</span>(REGEXP_EXTRACT(email, r<span class="hljs-string">&#x27;^(.*?)@&#x27;</span>), LENGTH(last_name)) <span class="hljs-keyword">as</span> fam_nam,
+    REGEXP_EXTRACT(email, r<span class="hljs-string">&#x27;[.@](.*?)\.&#x27;</span>) <span class="hljs-keyword">as</span> comp,
+    <span class="hljs-keyword">RIGHT</span>(email, <span class="hljs-number">3</span>) <span class="hljs-keyword">as</span> dom
+  <span class="hljs-keyword">FROM</span>
+    user_temp
+  LIMIT <span class="hljs-number">10</span>;
+
+  <span class="hljs-comment">/* &#x27;comp&#x27; STANDS FOR &quot;COMPANY&quot; AND &#x27;dom&#x27; STANDS FOR &quot;DOMAIN&quot; */</span>
+</code></pre>
+<blockquote>
+<p><code>EXPLANATION: REGEXP_EXTRACT() is regular expression that BigQuery provided in their built-in functions. This function match the substring with regular expression pattern. Example, when I extracted 'name' in email fields the regex can be interpretated as: &quot;Matching any character at the beginning of the string (^) before the '@' symbol.&quot;</code></p>
+</blockquote>
+<h3 id="32-case-study-roadmap">3.2 Case Study Roadmap</h3>
+<table>
+<thead>
+<tr>
+<th>Case Study Roadmap - Process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guiding questions: <ul> <li>What tools are you choosing and why?</li>In this analysis I used BigQuery as database (since the data hosted in BigQuery) and Looker Studio (formerly known as Google Data Studio) as dashboard report tools and utilized to aggregate and analyze data. <br><br> <li>Have you ensured your data’s integrity?</li>Yes, all data formatted correctly.  <br><br> <li>What steps have you taken to ensure that your data is clean?</li>I checked them using SQL script to count any duplication, ensured no blank or null records, and the consistency of strings' length. <br><br> <li>How can you verify that your data is clean and ready to analyze?</li>I tested the data using SQL script multiple times to ensure all data was ready to be analyzed. <br><br> <li>Have you documented your cleaning process so you can review and share those results?</li>Yes, I recorded all processes.</td>
+</tr>
+<tr>
+<td>Key tasks: <ol> <li>Check the data for errors.</li><li>Choose your tools.</li><li>Transform the data so you can work with it effectively.</li><li>Document the cleaning process.</li></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="checkbox190113" checked="true"><label for="checkbox190113">Documentation of any cleaning or manipulation of data</label></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-analyze">4. Analyze</h2>
+<p>I utilized Looker Studio as the analyze tool. But, since Looker Studio can not directly manipulate tables in the dataset (like Power Query in Power BI), I need to query all data required by connecting BigQuery to Looker Studio using custom query connection feature. Therefore, I need to write individual SQL scripts to perform all analysis I wanted to do.<br>
+<br></p>
+<h3 id="41-users-demographic">4.1 Users Demographic</h3>
+<img src=".\images\RevoU_DAMC_-_Bagus_Akhlaq_00001.jpg" id="lands-img">
+<br>
+First dashboard I made was about users' demographic. This visualization tells about how much our users are, where are they come from, how do they access our website, and how is our users growth from time to time. To perform the users card visualization, I write a custom query like this:
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span>
+  users.id,
+  users.gender
+<span class="hljs-keyword">FROM</span> 
+  bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.users <span class="hljs-keyword">as</span> users
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+  users.id <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<p>I used the COUNT() function in Looker Studio to count total distinct users. Then, sorted it by gender; I copied the total users card and filtered the data for each gender. The results is that our active users were 100,000 people, with almost 50:50 ratio for gender distribution. After that, I wanted explore our users age range to see which one was dominating. Therefore, to make the age range and gender distribution chart, I write the scripts like this:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">WITH</span> age_group <span class="hljs-keyword">AS</span> (
+  <span class="hljs-keyword">SELECT</span> users.age,
+    <span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> users.age<span class="hljs-operator">&gt;=</span><span class="hljs-number">12</span> <span class="hljs-keyword">AND</span> users.age<span class="hljs-operator">&lt;=</span><span class="hljs-number">17</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;12-17&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.age<span class="hljs-operator">&gt;=</span><span class="hljs-number">18</span> <span class="hljs-keyword">AND</span> users.age<span class="hljs-operator">&lt;=</span><span class="hljs-number">24</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;18-24&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.age<span class="hljs-operator">&gt;=</span><span class="hljs-number">25</span> <span class="hljs-keyword">AND</span> users.age<span class="hljs-operator">&lt;=</span><span class="hljs-number">34</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;25-34&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.age<span class="hljs-operator">&gt;=</span><span class="hljs-number">35</span> <span class="hljs-keyword">AND</span> users.age<span class="hljs-operator">&lt;=</span><span class="hljs-number">44</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;35-44&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.age<span class="hljs-operator">&gt;=</span><span class="hljs-number">45</span> <span class="hljs-keyword">AND</span> users.age<span class="hljs-operator">&lt;=</span><span class="hljs-number">54</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;45-54&#x27;</span>
+  		 <span class="hljs-keyword">WHEN</span> users.age<span class="hljs-operator">&gt;=</span><span class="hljs-number">55</span> <span class="hljs-keyword">AND</span> users.age<span class="hljs-operator">&lt;=</span><span class="hljs-number">64</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;55-64&#x27;</span>
+         <span class="hljs-keyword">ELSE</span> <span class="hljs-string">&#x27;&gt;65&#x27;</span> <span class="hljs-keyword">END</span> <span class="hljs-keyword">as</span> age_groups, users.gender <span class="hljs-keyword">as</span> gender
+  <span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.users <span class="hljs-keyword">as</span> users
+)
+<span class="hljs-keyword">SELECT</span>  age_groups, 
+        <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">as</span> total, 
+        gender,
+	    <span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> gender <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;F&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Female&#x27;</span>
+            <span class="hljs-keyword">ELSE</span> <span class="hljs-string">&#x27;Male&#x27;</span> <span class="hljs-keyword">END</span> <span class="hljs-keyword">as</span> genders
+<span class="hljs-keyword">FROM</span> age_group
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> age_groups, gender;
+</code></pre>
+<p>The age classification followed the age categories used by several govermental organizations which categorize age range from teenagers, youngs, young adults, adults, to seniors. This classification needed as a consideration of users buying power and other psychological aspects. The result shows that four groups of adults with range of age from 25 to 64 dominating 67.85 percent of our total users. Each group of age has 50:50 gender ratio (the difference was not significant). According to this, our users dominated by they who had stable income. This may also describe that products we sold are matched with adults preferences.</p>
+<p>After knowing the users distribution, I wanted to know how our users growth was. Since the analysis was done in September 2022, the latest complete data was in September, too. To create the visualization, I write a custom query like this:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+  id <span class="hljs-keyword">as</span> users_id,
+  gender,
+  created_at
+<span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.users
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
+</code></pre>
+<p>From the users table, I extracted the created_at column which contained when was the user register an account in our website. In Looker Studio, I used COUNTDISTINCT() function to count how much total distinct users, breakdown the gender using gender field, and then extract month and year data from created_at field. This would count total users joined our website in a year. The result shows that the last we have an increasing number of users was on the 2019-2020 period, then it went plateau on 2020-2021 period, then it went down from 2021 to September 2022.</p>
+<p>But if we breakdown for female line, the decreasing occured on 2020-2021 period, then went up again on 2021-2022 before going totally down in 2022. This finding indicates that we need to build a strategy to regain our users and traffic to maintain our business.</p>
+<p>Now, I wanted know what traffic they used to get into our website. To do this, I ran script like this:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">WITH</span> tg <span class="hljs-keyword">AS</span> (
+  <span class="hljs-keyword">SELECT</span> users.traffic_source <span class="hljs-keyword">as</span> traffic,
+    <span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> users.traffic_source <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;search&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Search&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.traffic_source <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;organic&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Organic&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.traffic_source <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;facebook&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Facebook&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.traffic_source <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;display&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Display&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.traffic_source <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;email&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Email&#x27;</span>
+         <span class="hljs-keyword">ELSE</span> users.traffic_source <span class="hljs-keyword">END</span> <span class="hljs-keyword">AS</span> traffic_groups
+  <span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.users <span class="hljs-keyword">as</span> users
+)
+<span class="hljs-keyword">SELECT</span>  traffic_groups, 
+        <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> Total
+<span class="hljs-keyword">FROM</span> tg
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> traffic_groups;
+</code></pre>
+<p>I plotted in a pie chart to see a clearly distinctive result. It turns out that most of users know our website by searching it in any search engine. It followed by organic users, Facebook, email, and display. This suggests us to maintain and improve our current SEO or SEM strategy. However, we can not overlook the other traffics. This can also suggests us to improve our branding to attract more organic users, improve our ads and marketing strategy in Facebook Ads, email marketing, or displays. In other word, we need to improve the accessibility and users recognition to our business.</p>
+<p>Lastly, I wanted to know where are they come from, does our users consisted only by local or domestic users or not. To do this, I ran a SQL script like this:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">WITH</span> country_group <span class="hljs-keyword">AS</span> (
+  <span class="hljs-keyword">SELECT</span> users.country,
+    <span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> users.country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;United States&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;US&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;South Korea&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;S.Korea&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;United Kingdom&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;UK&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;España&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Spain&#x27;</span>
+         <span class="hljs-keyword">WHEN</span> users.country <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Deutschland&#x27;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&#x27;Germany&#x27;</span>
+         <span class="hljs-keyword">ELSE</span> users.country <span class="hljs-keyword">END</span> <span class="hljs-keyword">AS</span> country_groups
+    <span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.users <span class="hljs-keyword">as</span> users
+)
+<span class="hljs-keyword">SELECT</span> country_groups, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> TOTAL
+<span class="hljs-keyword">FROM</span> country_group
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> country_groups
+</code></pre>
+<p>As mentioned in the cleaning process previously, there were two country name data that did not follow the official naming. I used the temp table made in cleaning process and extended it with a few country to make it shorter to increase the readability. I plotted it into a vertical bar chart. The result is surprising, top three countries our users from are China, US, and Brasil; which leads by China with 11,000 more people than US. It means that our products are fulfilled both domestic and international needing. This findings also tells us to improve international recognition, because we have a great potential to extend our market.</p>
+<h3 id="42-orders-and-sales-performance">4.2 Orders and Sales Performance</h3>
+<img src=".\images\RevoU_DAMC_-_Bagus_Akhlaq_00002.jpg" id="lands-img">
+<br>
+As seen in the image above, second dashboard I made was about orders and sales performance which consisted of total complete order, gross sales, profit, average sales, orders and sales trends. To do the sales report card visualizations, I ran SQL scripts:
+<pre><code class="language-sql"><span class="hljs-comment">/* 1. COMPLETE ORDER */</span>
+<span class="hljs-keyword">SELECT</span>
+  orders.order_id,
+  orders.delivered_at
+<span class="hljs-keyword">FROM</span>  bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.orders <span class="hljs-keyword">as</span> orders
+<span class="hljs-keyword">WHERE</span> orders.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Complete&#x27;</span>;
+</code></pre>
+<pre><code class="language-sql" id="gross-sales"><span class="hljs-comment">/* 2. GROSS SALES AND AVERAGE SALES */</span>
+<span class="hljs-keyword">SELECT</span>
+  items.order_id,
+  items.user_id,
+  items.delivered_at <span class="hljs-keyword">as</span> delivered,
+  orders.gender,
+  <span class="hljs-built_in">SUM</span>(orders.num_of_item <span class="hljs-operator">*</span> items.sale_price) <span class="hljs-keyword">as</span> order_revenue
+<span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.orders <span class="hljs-keyword">as</span> orders
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.order_items <span class="hljs-keyword">as</span> items
+<span class="hljs-keyword">ON</span> items.order_id <span class="hljs-operator">=</span> orders.order_id
+<span class="hljs-keyword">WHERE</span> items.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Complete&#x27;</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>;
+</code></pre>
+<pre><code class="language-sql"><span class="hljs-comment">/* 3. PROFIT */</span>
+<span class="hljs-keyword">SELECT</span>
+  items.order_id,
+  items.user_id,
+  orders.gender,
+  items.status,
+  items.product_id,
+  items.delivered_at <span class="hljs-keyword">as</span> delivered,
+  products.cost,
+  products.retail_price,
+  items.sale_price,
+  orders.num_of_item <span class="hljs-keyword">as</span> num_item,
+  ROUND(products.retail_price, <span class="hljs-number">0</span>) <span class="hljs-operator">-</span> ROUND(products.cost, <span class="hljs-number">0</span>) <span class="hljs-keyword">as</span> profit,
+  ((ROUND(products.retail_price, <span class="hljs-number">0</span>) <span class="hljs-operator">-</span> ROUND(products.cost, <span class="hljs-number">0</span>))<span class="hljs-operator">/</span>products.cost) <span class="hljs-keyword">as</span> percent_profit,
+<span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.order_items <span class="hljs-keyword">as</span> items
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.products <span class="hljs-keyword">as</span> products
+    <span class="hljs-keyword">ON</span> items.product_id <span class="hljs-operator">=</span> products.id
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.orders <span class="hljs-keyword">as</span> orders
+    <span class="hljs-keyword">ON</span> items.order_id <span class="hljs-operator">=</span> orders.order_id
+<span class="hljs-keyword">WHERE</span> items.status <span class="hljs-operator">=</span><span class="hljs-string">&#x27;Complete&#x27;</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<blockquote>
+<p><code>All these cards are linked to the date range control dropdown that can be seen on the right above of the sales trend chart. The date range control only controlled the cards and not the other visualizations. </code></p>
+</blockquote>
+<p>I only aggregated complete orders data and excluded cancellations and returns to gain the succesful sales data. That was why the complete orders was only 15,810 orders from January to September 2022, which was only 1,757 average orders per month or 58-59 average orders per day. Even though, the total complete orders was increasing 61.3% compared to the same period of time in year 2021. Through the third quarter of 2022, the gross sales was $2,567,319 with profit $709,349. These numbers increasing 60% compared to the same period of time last year.</p>
+<blockquote>
+<p>To clarify, the term 'gross sales' in this analysis refers to revenue (net sales) and term 'profit' refers to gross profit which only substract the revenue with cost of goods sold (CoGS) and not the fixed cost.</p>
+</blockquote>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Profit Margin</mtext><mo>=</mo><mfrac><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>i</mi><mi>t</mi></mrow><mrow><mi>r</mi><mi>e</mi><mi>v</mi><mi>e</mi><mi>n</mi><mi>u</mi><mi>e</mi></mrow></mfrac><mo>×</mo><mn>100</mn><mi mathvariant="normal">%</mi><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{Profit Margin} = \frac{profit}{revenue}\times100\%
+\\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Profit Margin</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">re</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">ro</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100%</span></span><span class="mspace newline"></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Profit Margin</mtext><mo>=</mo><mfrac><mrow><mn>709</mn><mo separator="true">,</mo><mn>349</mn></mrow><mrow><mn>2</mn><mo separator="true">,</mo><mn>567</mn><mo separator="true">,</mo><mn>319</mn></mrow></mfrac><mo>×</mo><mn>100</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\text{Profit Margin} = \frac{709,349}{2,567,319}\times100\%
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Profit Margin</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2019em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">567</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">319</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">709</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">349</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100%</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Profit Margin</mtext><mo>=</mo><mn>27.6</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\text{Profit Margin} = 27.6\%
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Profit Margin</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">27.6%</span></span></span></span></span></p>
+<p>The equation above shows that our profit margin was 27.6 percent. This number must be compared to the national average number or our competitor's number for the same industry to get a comprehensive interpretation. Average sales per complete orders through the third quarter of 2022 was $162, 0.2 percent lower than last year, but it was not significant.</p>
+<p>To make the sales trends visualization, I used the same <a href="#gross-sales" style="font-weight: bold;">Gross Sales SQL script</a> like in the previous total gross sales card visualizations. This time, I plotted it into a line chart by filtering the date into four quarters in a year. As seen in the chart, our gross sales was constantly growing up. Until it reached the highest sales in Q1 to Q2 on year 2022. There was an increase in gross sales (total revenue) of 237,000 USD in the period of first and second quarter of 2022, or 37 percent increase from the first quarter. This number touched the all-time high revenue from 2019 to 2022.</p>
+<p>The same SQL script (<a href="#gross-sales" style="font-weight: bold;">Gross Sales SQL script</a>) also used to analyze the orders trend. Orders trend was useful to explain why there was an increase of gross profit beside the possibility of the increase of users buying power. I plotted the data into a line chart like before, but I use COUNT() function to the order_id field instead as the parameter. The result was clear, in the same period (Q1 to Q2 of 2022) the total order went to the all-time high with an increase of 1,421 orders. It can conclude that the more frequent our users buy products from us, the more we get total revenue. However, other factors like buying volumes, may also effect the sales we get.</p>
+<p>Finally, still using the same SQL script, I plotted the data into a vertical stacked bar chart to see which buyers/users order our products more frequently. The result is surprisingly equalled. The ratio is constantly 50:50 between male and female users through 2019 to 2022. Total order numbers could grow until two-times each year, except for 2022 (total order numbers growed for 50 percent). This findings may indicates that our products always cover both genders segmentation.
+<br></p>
+<h3 id="43-products">4.3 Products</h3>
+<img src=".\images\RevoU_DAMC_-_Bagus_Akhlaq_00003.jpg" id="lands-img">
+<br>
+The third dashboard is about products. The visualizations will be about what product categories ordered the most, which gave the highest gross sales (revenue), and which from it was the most profitable brand. From this analysis, it was expected to know what products are the most desirable and needed by users, how can we strategize branded goods stocks in our warehous for every category to gain more sales and profit, and most importantly current users' preferences.
+<br>
+<br>
+First chart is about top 10 product categories were ordered by users. I used this SQL script:
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+  orders.order_id,
+  products.category,
+  products.brand,
+  products.name,
+  items.delivered_at,
+  orders.gender,
+  <span class="hljs-built_in">SUM</span>(ROUND(items.sale_price, <span class="hljs-number">0</span>)) <span class="hljs-keyword">as</span> total_sales,
+  <span class="hljs-built_in">SUM</span>(ROUND(products.retail_price, <span class="hljs-number">0</span>) <span class="hljs-operator">-</span> ROUND(products.cost, <span class="hljs-number">0</span>)) <span class="hljs-keyword">as</span> profit
+<span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.order_items <span class="hljs-keyword">as</span> items
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.products <span class="hljs-keyword">as</span> products
+    <span class="hljs-keyword">ON</span> items.product_id <span class="hljs-operator">=</span> products.id
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.orders <span class="hljs-keyword">as</span> orders
+    <span class="hljs-keyword">ON</span> items.order_id <span class="hljs-operator">=</span> orders.order_id
+<span class="hljs-keyword">WHERE</span> items.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Complete&#x27;</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span>;
+</code></pre>
+<p>I joined data from three tables to extract data I need. The result showed that intimates and jeans products dominated with more than 1,500 orders. The different was distinctive, intimates products were 100% ordered by female users, whereas respectively in the rest of the other categories, female users ordered only 35-39% of the total orders.</p>
+<p>Second visualization I made is about top 10 product category based on gross sales. I used this SQL script for the last two visualizations:</p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+  products.category,
+  products.brand,
+  items.delivered_at,
+  <span class="hljs-built_in">SUM</span>(ROUND(items.sale_price, <span class="hljs-number">0</span>)) <span class="hljs-keyword">as</span> total_sales,
+  <span class="hljs-built_in">SUM</span>(ROUND(products.retail_price, <span class="hljs-number">0</span>) <span class="hljs-operator">-</span> ROUND(products.cost, <span class="hljs-number">0</span>)) <span class="hljs-keyword">as</span> profit
+<span class="hljs-keyword">FROM</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.order_items <span class="hljs-keyword">as</span> items
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> bigquery<span class="hljs-operator">-</span>public<span class="hljs-operator">-</span>data.thelook_ecommerce.products <span class="hljs-keyword">as</span> products
+<span class="hljs-keyword">ON</span> items.product_id <span class="hljs-operator">=</span> products.id
+<span class="hljs-keyword">WHERE</span> items.status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Complete&#x27;</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
+</code></pre>
+<p>I plotted table and parameter into a bar chart where the x-axis plotted the product categories and the y-axis was the parameter of total gross sales. As seen in the image above, the top three categories such as Outwear &amp; Coats, Jeans, and Sweaters had the distinct total gross sales. If we look details into the result, outwears, coats, jeans, and sweaters are considered as seasonal wears. Followed by suits &amp; sport coats and swim wears which may also part of seasonal wears. This indicates that there can be a high demand of specific product category on each seasons.</p>
+<p>By any means, we need to consider the best marketing, ads, or selling strategy for each seasons. However, we may also need to enhance our work to sell more fashions and casuals wears to avoid dependance on seasonal products.</p>
+<p>For the last, with the same SQL script, I plotted the table and parameter into a vertical stacked bar chart where the x-axis was profit and y-axis was product category and brand as the breakdown dimension. This chart specifically categorizes by profit, so there was a different result shows in the 9<sup>th</sup> and 10<sup>th</sup> rank of product category. Even though the top 3 gross sales owned by outerwear &amp; coats, jeans, and sweaters; the top 3 profitable category owned by jeans, outerwear &amp; coats, and suits &amp; sport coats. By visual, we can conclude that some brands give the highest profit to a product category.</p>
+<p>For example: (1) True Religion, Columbia, and Calvin Klein gained the highest profit for outerwears &amp; coats category; (2) Diesel, 7 For All Mankind, and True Religion gained the highest profit for jeans category; (3) Quiksilver gained the highest profit for swim and shorts category; and (4) Ray-Ban gained the highest profit for accessories category.</p>
+<blockquote>
+<p><strong>SUMMARIES</strong>: <ol></p>
+<li>Users consist of male and female people with 50:50 ratio. </li> 
+<li>Groups of adult users with range of age 25 to 64 years old dominating 67.85 percent of our total users. </li>
+<li>Gender distribution was 50:50 for each groups of age.</li>
+<li>There was a significant decrease in the user growth chart in the 2021-2022 timeframe.</li>
+<li>Most of users access our website through the search engines with 70 percent coverage.</li>
+<li>Top 3 country where the users come from were China (34.2%), United States (22.5%), and Brasil (14.5%).</li>
+<li>There were an increase in sales and orders performance in 2022.</li>
+<li>Sales and orders trends showed constant growth for year-to-year data.</li>
+<li>Gross profit we acquired in Q1 to Q3 of 2022 was 709,349 US dollars. The profit margin was 27.6 percent. </li>
+<li>One hundred percent of intimates products was ordered by female users. There were only about 35-39 percent females ordered the rest of the other categories.</li>
+<li>Outwears & coats, jeans, and sweaters were top 3 categories which generated the highest gross sales.</li>
+<li>Top 3 profitable categories owned by jeans, outerwear & coats, and suits & sport coats. Some brands generated the highest profit in a specific product category.</li>
+</blockquote>
+<h3 id="44-case-study-roadmap">4.4 Case Study Roadmap</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Case Study Roadmap - Analyze</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guiding Questions: <ul> <li>How should you organize your data to perform analysis on it?</li>The data was already well-organized in BigQuery by Looker Team, no need further organizing work to the data. <br><br> <li>Has your data been properly formatted?</li>Yes, I had ensured that the data was properly formatted. <br><br> <li>What surprises did you discover in the data?</li>Users gender distribution was equal. User growth was dropping significantly in 2022. There were more international users than national users. Sales and orders performance growing constantly. Intimates products were only ordered by female users. Some brands generated the highest profit in a category.  <br><br> <li>What trends or relationships did you find in the data?</li>Users growth in 2022 was not going well. Sales and orders trends constantly growing up. High orders volume might effect to the high sales generated. <br><br> <li>How will these insights help answer your business questions?</li>All findings showed in the dashboard depicted The Look's recent business performance.</ul></td>
+</tr>
+<tr>
+<td>Key Tasks: <ol> <li>Aggregate your data so it’s useful and accessible.</li>  <li>Organize and format your data.</li> <li>Perform calculations.</li> <li>Identify trends and relationships.</li></ol></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="checkbox190114" checked="true"><label for="checkbox190114">A summary of your analysis</label></td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2 id="5-share">5. Share</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Case Study Roadmap - Share</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guiding Questions: <ul> <li>Were you able to answer the business question?</li>Yes, i was able to answer the questions. <br><br> <li>What story does your data tell?</li>Overall, sales performance was great, but not the users growth. Company needs to build the right strategies to increase users growth, maintain sales performance, and increase the other product segments.<br><br> <li>How do your findings relate to your original question?</li>All information showed in the dashboard answered the original questions. <br><br> <li>Who is your audience? What is the best way to communicate with them?</li>My audience is a marketing and sales managers and stakeholders. The most effective way to communicate with them is to build a concise presentation that includes all requested findings, data visualizations, and a brief explanation of the visualizations.  <br><br> <li>Can data visualization help you share your findings?</li>Yes, data visualization helps me to share my findings. <br><br> <li>Is your presentation accessible to your audience?</li>Yes, my presentation is accessible. </ul></td>
+</tr>
+<tr>
+<td>Key Tasks: <ol> <li>Determine the best way to share your findings.</li> <li>Create effective data visualizations.</li> <li>Present your findings.</li> <li>Ensure your work is accessible.</li></ol></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="checkbox190115" checked="true"><label for="checkbox190115">Supporting visualizations and key findings</label></td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-act">6. Act</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Case Study Roadmap - Act</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guiding Questions: <ul> <li>What is your final conclusion based on your analysis?</li>Decreasing users growth must be company's priority. Create a suitable strategy to maintain sales performance and improve other product segments. <br><br> <li>How could your team and business apply your insights?</li>They can construct an appropriate plan by combining these insights with those they already possess. <br><br> <li>What next steps would you or your stakeholders take based on your findings?</li>Combining these findings with previous analysis to see if there was any similarity, we then built a suitable strategy by considering business and users needs. <br><br> <li>Is there additional data you could use to expand on your findings?</li>No, the dataset already contained all the data required if the analysis needed to be expanded. </ul></td>
+</tr>
+<tr>
+<td>Key Tasks: <ol> <li>Create your portfolio.</li> <li>Add your case study.</li> <li>Practice presenting your case study to a friend or family member.</li> </ol></td>
+</tr>
+<tr>
+<td><input type="checkbox" id="checkbox190116" checked="true"><label for="checkbox190116">Your top three recommendations based on your analysis</label></td>
+</tr>
+</tbody>
+</table>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
