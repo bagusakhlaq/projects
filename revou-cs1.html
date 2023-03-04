@@ -845,7 +845,7 @@ I NEEDED TO CONVERT THE DATA TYPE INTO STRING FIRST. */</span>
 <p>I utilized Looker Studio as the analyze tool. But, since Looker Studio can not directly manipulate tables in the dataset (like Power Query in Power BI), I need to query all data required by connecting BigQuery to Looker Studio using custom query connection feature. Therefore, I need to write individual SQL scripts to perform all analysis I wanted to do.<br>
 <br></p>
 <h3 id="41-users-demographic">4.1 Users Demographic</h3>
-<img src=".\images\RevoU_DAMC_-_Bagus_Akhlaq_00001.jpg" id="lands-img">
+<img src="projects/images/RevoU_DAMC_-_Bagus_Akhlaq_00001.jpg" id="lands-img">
 <br>
 First dashboard I made was about users' demographic. This visualization tells about how much our users are, where are they come from, how do they access our website, and how is our users growth from time to time. To perform the users card visualization, I write a custom query like this:
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span>
@@ -921,7 +921,7 @@ First dashboard I made was about users' demographic. This visualization tells ab
 </code></pre>
 <p>As mentioned in the cleaning process previously, there were two country name data that did not follow the official naming. I used the temp table made in cleaning process and extended it with a few country to make it shorter to increase the readability. I plotted it into a vertical bar chart. The result is surprising, top three countries our users from are China, US, and Brasil; which leads by China with 11,000 more people than US. It means that our products are fulfilled both domestic and international needing. This findings also tells us to improve international recognition, because we have a great potential to extend our market.</p>
 <h3 id="42-orders-and-sales-performance">4.2 Orders and Sales Performance</h3>
-<img src=".\images\RevoU_DAMC_-_Bagus_Akhlaq_00002.jpg" id="lands-img">
+<img src="projects/images/RevoU_DAMC_-_Bagus_Akhlaq_00002.jpg" id="lands-img">
 <br>
 As seen in the image above, second dashboard I made was about orders and sales performance which consisted of total complete order, gross sales, profit, average sales, orders and sales trends. To do the sales report card visualizations, I ran SQL scripts:
 <pre><code class="language-sql"><span class="hljs-comment">/* 1. COMPLETE ORDER */</span>
@@ -986,7 +986,7 @@ As seen in the image above, second dashboard I made was about orders and sales p
 <p>Finally, still using the same SQL script, I plotted the data into a vertical stacked bar chart to see which buyers/users order our products more frequently. The result is surprisingly equalled. The ratio is constantly 50:50 between male and female users through 2019 to 2022. Total order numbers could grow until two-times each year, except for 2022 (total order numbers growed for 50 percent). This findings may indicates that our products always cover both genders segmentation.
 <br></p>
 <h3 id="43-products">4.3 Products</h3>
-<img src=".\images\RevoU_DAMC_-_Bagus_Akhlaq_00003.jpg" id="lands-img">
+<img src="projects/images/RevoU_DAMC_-_Bagus_Akhlaq_00003.jpg" id="lands-img">
 <br>
 The third dashboard is about products. The visualizations will be about what product categories ordered the most, which gave the highest gross sales (revenue), and which from it was the most profitable brand. From this analysis, it was expected to know what products are the most desirable and needed by users, how can we strategize branded goods stocks in our warehous for every category to gain more sales and profit, and most importantly current users' preferences.
 <br>
