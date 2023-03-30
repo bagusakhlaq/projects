@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Project Data Analysis for Retail&colon; Sales Performance Report</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension jebbs.markdown-extended */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+.vscode-light kbd,
+.vscode-dark kbd,
+.vscode-high-contrast kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  vertical-align: middle;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.vscode-light kbd {
+  color: #444d56;
+  background-color: #fafbfc;
+}
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link href="https://fonts.googleapis.com/css?family=Inter" rel='stylesheet'>
+<style>
+    body {
+        font-family:'Inter'
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+    }
+    blockquote {
+        background-color: rgba(220, 220, 220, 0.25);
+        font-weight: 500;
+    }
+    p, li {
+        font-weight: 400;
+    }
+    #port-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 275px;
+        height: auto;
+    }
+    #lands-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 545px;
+        height: auto;
+    }
+    #lands2-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 850px;
+        height: auto;
+    }
+    /* X-Small devices (portrait phones, less than 576px) */
+    /* @media only screen and (min-width: 300px) {
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
+		th {font-size: 3.4vw;} 
+		td {font-size: 1.4vw;} 
+		pre, label {font-size: 3vw;}
+		blockquote {font-size: 1.2vw;}
+		.katex {font-size: 4vw;}
+		input[type="checkbox" i] {width: 25px; height: 25px;}
+	} */
+	@media only screen and (max-width: 478px) { 
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
+		th {font-size: 3.4vw;} 
+		td {font-size: 1.4vw;} 
+		pre, label {font-size: 3vw;}
+		blockquote {font-size: 1.2vw;}
+		.katex {font-size: 4vw;}
+		input[type="checkbox" i] {width: 25px; height: 25px;}
+	}
+    /* Small devices (landscape phones, less than 768px) */
+    @media (max-width: 767px) { 
+        th, td, pre {font-size: 2vw;} 
+        }
+    /* Medium devices (tablets, less than 992px) 
+    @media (max-width: 991.98px) { 
+        th, td, pre {font-size: 3vw;} 
+        } */
+</style>
+<h3 id="project-data-analysis-for-retail-sales-performance-report">Project Data Analysis for Retail: Sales Performance Report</h3>
+<h1 id="dqlab">DQLab</h1>
+<h2 id="chapter-1-introduction">Chapter 1: Introduction</h2>
+<h3 id="dataset-brief">Dataset Brief</h3>
+<p>Dataset yang digunakan berisi transaksi dari tahun 2009 sampai dengan tahun 2012 dengan jumlah raw data sebanyak 5500, termasuk di dalamnya order status yang terbagi menjadi order finished, order returned dan order cancelled</p>
+<p>Adapun dataset yang sudah diberikan dan akan digunakan pada project ini berisi data sebagai berikut.</p>
+<ol>
+<li>OrderID</li>
+<li>Order Status</li>
+<li>Customer</li>
+<li>Order Date</li>
+<li>Order Quantity</li>
+<li>Sales</li>
+<li>Discount %</li>
+<li>Discount</li>
+<li>Product Category</li>
+<li>Product Sub-Category</li>
+</ol>
+<p>Nama tabel yang akan digunakan pada project ini adalah <strong>dqlab_sales_store</strong></p>
+<h3 id="petunjuk-penyelesaian-project">Petunjuk Penyelesaian Project</h3>
+<p>Untuk menyelesaikan project, maka kita akan mengetikkan code yang perlu disubmit untuk dicek jawabannya benar atau salah.
+Dari data yang sudah diberikan, dari pihak manajemen DQLab store ingin mengetahui:</p>
+<ul>
+<li>1A. Overall perofrmance DQLab Store dari tahun 2009 - 2012 untuk jumlah order dan total sales order finished</li>
+<li>1B. Overall performance DQLab by subcategory product yang akan dibandingkan antara tahun 2011 dan tahun 2012</li>
+<li>2A. Efektifitas dan efisiensi promosi yang dilakukan selama ini, dengan menghitung burn rate dari promosi yang dilakukan overall berdasarkan tahun</li>
+<li>2B. Efektifitas dan efisiensi promosi yang dilakukan selama ini, dengan menghitung burn rate dari promosi yang dilakukan overall berdasarkan sub-category</li>
+</ul>
+<p>Setelah melihat hasil analisa di Sub Bab 1 dan 2, selanjutnya dilakukan analisa terhadap customer DQLab. Analisa dari sisi customer dengan menggunakan metrics:</p>
+<ul>
+<li>3A. Analisa terhadap customer setiap tahunnya</li>
+<li>3B. Analisa terhadap jumlah customer baru setiap tahunnya</li>
+<li>3C. Cohort untuk mengetahui angka retention customer tahun 2009</li>
+</ul>
+<h2 id="chapter-2-dqlab-store-overall-performance">Chapter 2: DQLab Store Overall Performance</h2>
+<h3 id="overall-performance-by-year">Overall Performance by Year</h3>
+<p>Buatlah Query dengan menggunakan SQL untuk mendapatkan total penjualan (sales) dan jumlah order (number_of_order) dari tahun 2009 sampai 2012 (years).</p>
+<p>Output yang harus dihasilkan adalah sebagai berikut.</p>
+<table>
+<thead>
+<tr>
+<th>years</th>
+<th>sales</th>
+<th style="text-align:right">number_of_order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009</td>
+<td>4613872681</td>
+<td style="text-align:right">1244</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>4059100607</td>
+<td style="text-align:right">1248</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>4112036186</td>
+<td style="text-align:right">1178</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>4482983158</td>
+<td style="text-align:right">1254</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-keyword">as</span> years,
+	<span class="hljs-built_in">SUM</span>(sales) <span class="hljs-keyword">as</span> sales,
+	<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> order_id) <span class="hljs-keyword">as</span> number_of_order
+<span class="hljs-keyword">FROM</span>
+	dqlab_sales_store
+<span class="hljs-keyword">WHERE</span>
+	order_status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Order Finished&#x27;</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<h3 id="overall-performance-by-product-sub-category">Overall Performance by Product Sub Category</h3>
+<p>Buatlah Query dengan menggunakan SQL untuk mendapatkan total penjualan (sales) <strong>berdasarkan sub category dari produk</strong> (product_sub_category) pada <strong>tahun 2011 dan 2012</strong> saja (years)</p>
+<p>Output yang harus dihasilkan adalah sebagai berikut.</p>
+<table>
+<thead>
+<tr>
+<th>years</th>
+<th>product_sub_category</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2011</td>
+<td>Chairs &amp; Chairmats</td>
+<td>622962720</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Office Machines</td>
+<td>545856280</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Tables</td>
+<td>505875008</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Copiers and Fax</td>
+<td>404074080</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Telephones and Communication</td>
+<td>392194658</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Binders and Binder Accessories</td>
+<td>298023200</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Storage &amp; Organization</td>
+<td>285991820</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Appliances</td>
+<td>272630020</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Computer Peripherals</td>
+<td>232677960</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Bookcases</td>
+<td>169304620</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Office Furnishings</td>
+<td>160471500</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Paper</td>
+<td>111080380</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Pens &amp; Art Supplies</td>
+<td>43093800</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Envelopes</td>
+<td>36463900</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Labels</td>
+<td>15607780</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Scissors, Rulers and Trimmers</td>
+<td>12638340</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Rubber Bands</td>
+<td>3090120</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Office Machines</td>
+<td>811427140</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Chairs &amp; Chairmats</td>
+<td>654168740</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Telephones and Communication</td>
+<td>422287514</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Tables</td>
+<td>388993784</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Binders and Binder Accessories</td>
+<td>363879200</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Storage &amp; Organization</td>
+<td>356714140</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Computer Peripherals</td>
+<td>308014340</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Copiers and Fax</td>
+<td>292489800</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Appliances</td>
+<td>266131100</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Office Furnishings</td>
+<td>178927480</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Bookcases</td>
+<td>159984680</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Paper</td>
+<td>126896160</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Envelopes</td>
+<td>58629280</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Pens &amp; Art Supplies</td>
+<td>43818480</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Scissors, Rulers and Trimmers</td>
+<td>36776400</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Labels</td>
+<td>10007040</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Rubber Bands</td>
+<td>3837880</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> 
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-keyword">as</span> years,
+	product_sub_category,
+	<span class="hljs-built_in">SUM</span>(sales)
+<span class="hljs-keyword">FROM</span>
+	dqlab_sales_store
+<span class="hljs-keyword">WHERE</span>
+	order_status <span class="hljs-operator">=</span> &quot;Order Finished&quot; <span class="hljs-keyword">AND</span>
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-operator">&gt;</span> <span class="hljs-number">2010</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>, <span class="hljs-number">2</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>, <span class="hljs-number">3</span> <span class="hljs-keyword">DESC</span>;
+</code></pre>
+<h2 id="chapter-3-dqlab-store-promotion-effectiveness-and-efficiency">Chapter 3: DQLab Store Promotion Effectiveness and Efficiency</h2>
+<h3 id="promotion-effectiveness-and-efficiency-by-years">Promotion Effectiveness and Efficiency by Years</h3>
+<p>Pada bagian ini kita akan melakukan analisa terhadap efektifitas dan efisiensi dari promosi yang sudah dilakukan selama ini</p>
+<p>Efektifitas dan efisiensi dari promosi yang dilakukan akan dianalisa berdasarkan Burn Rate yaitu dengan membandigkan total value promosi yang dikeluarkan terhadap total sales yang diperoleh</p>
+<p>DQLab berharap bahwa burn rate tetap berada diangka maskimum 4.5%</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Formula untuk burn rate</mtext><mo>:</mo><mfrac><mtext>total discount</mtext><mtext>total sales</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">\text{Formula untuk burn rate}: \frac{\text{total discount}}{\text{total sales}} \times 100
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Formula untuk burn rate</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">total sales</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">total discount</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span></span></p>
+<p>Buatkan Derived Tables untuk menghitung total sales (sales) dan total discount (promotion_value) berdasarkan tahun(years) dan formulasikan persentase burn rate nya (burn_rate_percentage).</p>
+<p>Adapun output yang seharusnya dihasilkan adalah sebagai berikut.</p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-keyword">as</span> years,
+	<span class="hljs-built_in">SUM</span>(sales) <span class="hljs-keyword">as</span> sales,
+	<span class="hljs-built_in">SUM</span>(discount_value) <span class="hljs-keyword">as</span> promotion_value,
+	ROUND((<span class="hljs-built_in">SUM</span>(discount_value)<span class="hljs-operator">/</span><span class="hljs-built_in">SUM</span>(sales))<span class="hljs-operator">*</span><span class="hljs-number">100</span>, <span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> burn_rate_percentage
+<span class="hljs-keyword">FROM</span>
+	dqlab_sales_store
+<span class="hljs-keyword">WHERE</span>
+	order_status <span class="hljs-operator">=</span> &quot;Order Finished&quot;
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<h3 id="promotion-effectiveness-and-efficiency-by-product-sub-category">Promotion Effectiveness and Efficiency by Product Sub Category</h3>
+<p>Pada bagian ini kita akan melakukan analisa terhadap efektifitas dan efisiensi dari promosi yang sudah dilakukan selama ini seperti pada bagian sebelumnya.</p>
+<p>Akan tetapi, ada kolom yang harus ditambahkan, yaitu : product_sub_category dan product_category</p>
+<p>Adapun output yang seharusnya dihasilkan adalah sebagai berikut:</p>
+<table>
+<thead>
+<tr>
+<th>years</th>
+<th>product_sub_category</th>
+<th>product_category</th>
+<th>sales</th>
+<th>promotion_value</th>
+<th>burn_rate_percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2012</td>
+<td>Office Machines</td>
+<td>Technology</td>
+<td>811427140</td>
+<td>46616695</td>
+<td>5.75</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Chairs &amp; Chairmats</td>
+<td>Furniture</td>
+<td>654168740</td>
+<td>26623882</td>
+<td>4.07</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Telephones and Communication</td>
+<td>Technology</td>
+<td>422287514</td>
+<td>18800188</td>
+<td>4.45</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Tables</td>
+<td>Furniture</td>
+<td>388993784</td>
+<td>16348689</td>
+<td>4.2</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Binders and Binder Accessories</td>
+<td>Office Supplies</td>
+<td>363879200</td>
+<td>22338980</td>
+<td>6.14</td>
+</tr>
+</tbody>
+</table>
+<p>Notes :</p>
+<ul>
+<li>Data yang ditampilkan hanya untuk tahun 2012</li>
+<li>Contoh output di atas hanya 5 baris pertama dari output yang diharapkan</li>
+</ul>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-keyword">as</span> years,
+	product_sub_category,
+	product_category,
+	<span class="hljs-built_in">SUM</span>(sales) <span class="hljs-keyword">as</span> sales,
+	<span class="hljs-built_in">SUM</span>(discount_value) <span class="hljs-keyword">as</span> promotion_value,
+	ROUND((<span class="hljs-built_in">SUM</span>(discount_value)<span class="hljs-operator">/</span><span class="hljs-built_in">SUM</span>(sales))<span class="hljs-operator">*</span><span class="hljs-number">100</span>, <span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> burn_rate_percentage
+<span class="hljs-keyword">FROM</span>
+	dqlab_sales_store
+<span class="hljs-keyword">WHERE</span>
+	order_status <span class="hljs-operator">=</span> &quot;Order Finished&quot; <span class="hljs-keyword">AND</span>
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-operator">=</span> <span class="hljs-number">2012</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">4</span> <span class="hljs-keyword">DESC</span>;
+</code></pre>
+<h2 id="chapter-4-customer-analytics">Chapter 4: Customer Analytics</h2>
+<h3 id="customers-transactions-per-year">Customers Transactions per Year</h3>
+<p>DQLab Store ingin mengetahui jumlah customer (number_of_customer) yang bertransaksi setiap tahun dari 2009 sampai 2012 (years).</p>
+<p>Adapun output yang seharusnya dihasilkan adalah sebagai berikut.</p>
+<table>
+<thead>
+<tr>
+<th>years</th>
+<th>number_of_customer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2009</td>
+<td>585</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>593</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>581</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>594</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	<span class="hljs-keyword">YEAR</span>(order_date) <span class="hljs-keyword">as</span> years,
+	<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customer) <span class="hljs-keyword">as</span> number_of_customer
+<span class="hljs-keyword">FROM</span>
+	dqlab_sales_store
+<span class="hljs-keyword">WHERE</span>
+	order_status <span class="hljs-operator">=</span> &quot;Order Finished&quot;
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
