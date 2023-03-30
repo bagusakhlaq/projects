@@ -408,14 +408,14 @@
 <li>Tabel Customer : Berisi data profil customer yang mendaftar menjadi customer <a href="http://xyz.com">xyz.com</a>
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch2-p1.png" style="width: 450px"></li>
+<img src="/projects/images/dqlab-project-3/ch2-p1.png" style="width: 450px"></li>
 </ol>
 <h3 id="memahami-table">Memahami table</h3>
 <p>Sebelum memulai menyusun query SQL dan membuat Analisa dari hasil query, hal pertama yang perlu dilakukan adalah menjadi familiar dengan tabel yang akan digunakan. Hal ini akan sangat berguna dalam menentukan kolom mana sekiranya berkaitan dengan problem yang akan dianalisa, dan proses manipulasi data apa yang sekiranya perlu dilakukan untuk kolom – kolom tersebut, karena tidak semua kolom pada tabel perlu untuk digunakan.</p>
 <p>Lakukan pengecekan data di query editor dan jika berhasil hasil sebagai berikut
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch2-p2.png" style="width: 450px"></p>
+<img src="/projects/images/dqlab-project-3/ch2-p2.png" style="width: 450px"></p>
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> orders_1 limit <span class="hljs-number">5</span>;
 <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> orders_2 limit <span class="hljs-number">5</span>;
 <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> customer limit <span class="hljs-number">5</span>;
@@ -425,8 +425,8 @@
 <p>Lakukan pengecekan data di query editor dan jika berhasil hasilnya sebagai berikut :
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch3-p1.png">
-<img src="projects/images/dqlab-project-3/ch3-p2.png"></p>
+<img src="/projects/images/dqlab-project-3/ch3-p1.png">
+<img src="/projects/images/dqlab-project-3/ch3-p2.png"></p>
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
 	<span class="hljs-built_in">SUM</span>(quantity) <span class="hljs-keyword">as</span> total_penjualan,
 	<span class="hljs-built_in">SUM</span>(quantity <span class="hljs-operator">*</span> priceeach) <span class="hljs-keyword">as</span> revenue
@@ -448,7 +448,7 @@
 <p>Hasil kolom sebagai berikut :
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch3-p3.png"></p>
+<img src="/projects/images/dqlab-project-3/ch3-p3.png"></p>
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
 	quarter,
 	<span class="hljs-built_in">SUM</span>(quantity) <span class="hljs-keyword">as</span> total_penjualan,
@@ -490,7 +490,7 @@
 <p>Penambahan jumlah customers dapat diukur dengan membandingkan total jumlah customers yang registrasi di periode saat ini dengan total jumlah customers yang registrasi diakhir periode sebelumnya.
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch4-p1.png"></p>
+<img src="/projects/images/dqlab-project-3/ch4-p1.png"></p>
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
 	quarter,
 	<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID) <span class="hljs-keyword">as</span> total_customers
@@ -513,7 +513,7 @@
 <p>Problem ini merupakan kelanjutan dari problem sebelumnya yaitu dari sejumlah customer yang registrasi di periode quarter-1 dan quarter-2, berapa banyak yang sudah melakukan transaksi
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch4-p2.png"></p>
+<img src="/projects/images/dqlab-project-3/ch4-p2.png"></p>
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
 	quarter,
 	<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID) <span class="hljs-keyword">as</span> total_customers
@@ -547,7 +547,7 @@
 <p>Hasilnya sebagai berikut :
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch4-p3.png"></p>
+<img src="/projects/images/dqlab-project-3/ch4-p3.png"></p>
 <pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> 
 <span class="hljs-keyword">FROM</span> 
     (<span class="hljs-keyword">SELECT</span>
@@ -577,7 +577,7 @@
 <p>Hasilnya sebagai berikut :
 <br>
 <br>
-<img src="projects/images/dqlab-project-3/ch4-p4.png"></p>
+<img src="/projects/images/dqlab-project-3/ch4-p4.png"></p>
 <pre><code class="language-sql"><span class="hljs-comment">/* Menghitung total unik customers yang transaksi di quarter_1 */</span>
 <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID) <span class="hljs-keyword">as</span> total_customers <span class="hljs-keyword">FROM</span> orders_1;
 
