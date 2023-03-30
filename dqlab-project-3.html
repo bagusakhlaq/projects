@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Project Data Analysis for B2B Retail&colon; Customer Analytics Report</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension jebbs.markdown-extended */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+.vscode-light kbd,
+.vscode-dark kbd,
+.vscode-high-contrast kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  vertical-align: middle;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.vscode-light kbd {
+  color: #444d56;
+  background-color: #fafbfc;
+}
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link href="https://fonts.googleapis.com/css?family=Inter" rel='stylesheet'>
+<style>
+    body {
+        font-family:'Inter'
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+    }
+    blockquote {
+        background-color: rgba(220, 220, 220, 0.25);
+        font-weight: 500;
+    }
+    p, li {
+        font-weight: 400;
+    }
+    #port-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 275px;
+        height: auto;
+    }
+    #lands-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 545px;
+        height: auto;
+    }
+    #lands2-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 850px;
+        height: auto;
+    }
+    /* X-Small devices (portrait phones, less than 576px) */
+    /* @media only screen and (min-width: 300px) {
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
+		th {font-size: 3.4vw;} 
+		td {font-size: 1.4vw;} 
+		pre, label {font-size: 3vw;}
+		blockquote {font-size: 1.2vw;}
+		.katex {font-size: 4vw;}
+		input[type="checkbox" i] {width: 25px; height: 25px;}
+	} */
+	@media only screen and (max-width: 478px) { 
+		h1, h2, h3, h4, h5, p, li {font-size: 1.2vw;}
+		th {font-size: 3.4vw;} 
+		td {font-size: 1.4vw;} 
+		pre, label {font-size: 3vw;}
+		blockquote {font-size: 1.2vw;}
+		.katex {font-size: 4vw;}
+		input[type="checkbox" i] {width: 25px; height: 25px;}
+	}
+    /* Small devices (landscape phones, less than 768px) */
+    @media (max-width: 767px) { 
+        th, td, pre {font-size: 2vw;} 
+        }
+    /* Medium devices (tablets, less than 992px) 
+    @media (max-width: 991.98px) { 
+        th, td, pre {font-size: 3vw;} 
+        } */
+</style>
+<h3 id="project-data-analysis-for-b2b-retail-customer-analytics-report">Project Data Analysis for B2B Retail: Customer Analytics Report</h3>
+<h1 id="dqlab">DQLab</h1>
+<h2 id="chapter-1-introduction">Chapter 1: Introduction</h2>
+<h3 id="latar-belakang">Latar Belakang</h3>
+<p><a href="http://xyz.com">xyz.com</a> adalah perusahan rintisan B2B yang menjual berbagai produk tidak langsung kepada end user tetapi ke bisnis/perusahaan lainnya. Sebagai data-driven company, maka setiap pengambilan keputusan di <a href="http://xyz.com">xyz.com</a> selalu berdasarkan data. Setiap quarter <a href="http://xyz.com">xyz.com</a> akan mengadakan townhall dimana seluruh atau perwakilan divisi akan berkumpul untuk me-review performance perusahaan selama quarter terakhir.</p>
+<h3 id="tugas-dan-langkah">Tugas dan Langkah</h3>
+<p>Sebagai seorang data analyst, kamu dimintai untuk menyediakan data dan analisa mengenai kondisi perusahaan bulan terakhir untuk dipresentasikan di townhall tersebut. (Asumsikan tahun yang sedang berjalan adalah tahun 2004).</p>
+<p>Adapun hal yang akan direview adalah :</p>
+<ol>
+<li>Bagaimana pertumbuhan penjualan saat ini?</li>
+<li>Apakah jumlah customers <a href="http://xyz.com">xyz.com</a> semakin bertambah ?</li>
+<li>Dan seberapa banyak customers tersebut yang sudah melakukan transaksi?</li>
+<li>Category produk apa saja yang paling banyak dibeli oleh customers?</li>
+<li>Seberapa banyak customers yang tetap aktif bertransaksi?</li>
+</ol>
+<h2 id="chapter-2-pengenalan-tabel">Chapter 2: Pengenalan Tabel</h2>
+<h3 id="tabel-yang-digunakan">Tabel yang Digunakan</h3>
+<p>Tabel yang akan digunakan pada project kali ini adalah sebagai berikut.</p>
+<ol>
+<li>Tabel orders_1 : Berisi data terkait transaksi penjualan periode quarter 1 (Jan – Mar 2004)</li>
+<li>Tabel Orders_2 : Berisi data terkait transaksi penjualan periode quarter 2 (Apr – Jun 2004)</li>
+<li>Tabel Customer : Berisi data profil customer yang mendaftar menjadi customer <a href="http://xyz.com">xyz.com</a>
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch2-p1.png" style="width: 450px"></li>
+</ol>
+<h3 id="memahami-table">Memahami table</h3>
+<p>Sebelum memulai menyusun query SQL dan membuat Analisa dari hasil query, hal pertama yang perlu dilakukan adalah menjadi familiar dengan tabel yang akan digunakan. Hal ini akan sangat berguna dalam menentukan kolom mana sekiranya berkaitan dengan problem yang akan dianalisa, dan proses manipulasi data apa yang sekiranya perlu dilakukan untuk kolom – kolom tersebut, karena tidak semua kolom pada tabel perlu untuk digunakan.</p>
+<p>Lakukan pengecekan data di query editor dan jika berhasil hasil sebagai berikut
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch2-p2.png" style="width: 450px"></p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> orders_1 limit <span class="hljs-number">5</span>;
+<span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> orders_2 limit <span class="hljs-number">5</span>;
+<span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> customer limit <span class="hljs-number">5</span>;
+</code></pre>
+<h2 id="chapter-3-bagaimana-pertumbuhan-penjualan-saat-ini">Chapter 3: Bagaimana Pertumbuhan Penjualan Saat Ini</h2>
+<h3 id="total-penjualan-dan-revenue-pada-quarter-1-jan-feb-mar-dan-quarter-2-aprmeijun">Total Penjualan dan Revenue pada Quarter-1 (Jan, Feb, Mar) dan Quarter-2 (Apr,Mei,Jun)</h3>
+<p>Lakukan pengecekan data di query editor dan jika berhasil hasilnya sebagai berikut :
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch3-p1.png">
+<img src="projects/images/dqlab-project-3/ch3-p2.png"></p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	<span class="hljs-built_in">SUM</span>(quantity) <span class="hljs-keyword">as</span> total_penjualan,
+	<span class="hljs-built_in">SUM</span>(quantity <span class="hljs-operator">*</span> priceeach) <span class="hljs-keyword">as</span> revenue
+<span class="hljs-keyword">FROM</span>
+	orders_1
+<span class="hljs-keyword">WHERE</span>
+	status <span class="hljs-operator">=</span> &quot;Shipped&quot;;
+	
+<span class="hljs-keyword">SELECT</span>
+	<span class="hljs-built_in">SUM</span>(quantity) <span class="hljs-keyword">as</span> total_penjualan,
+	<span class="hljs-built_in">SUM</span>(quantity <span class="hljs-operator">*</span> priceeach) <span class="hljs-keyword">as</span> revenue
+<span class="hljs-keyword">FROM</span>
+	orders_2
+<span class="hljs-keyword">WHERE</span>
+	status <span class="hljs-operator">=</span> &quot;Shipped&quot;;
+</code></pre>
+<h3 id="menghitung-persentasi-keseluruhan-penjualan">Menghitung persentasi keseluruhan penjualan</h3>
+<p>Kedua tabel orders_1 dan orders_2 masih terpisah, untuk menghitung persentasi keseluruhan penjualan dari kedua tabel tersebut perlu digabungkan.</p>
+<p>Hasil kolom sebagai berikut :
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch3-p3.png"></p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	quarter,
+	<span class="hljs-built_in">SUM</span>(quantity) <span class="hljs-keyword">as</span> total_penjualan,
+	<span class="hljs-built_in">SUM</span>(quantity<span class="hljs-operator">*</span>priceeach) <span class="hljs-keyword">as</span> revenue
+<span class="hljs-keyword">FROM</span> (
+        <span class="hljs-keyword">SELECT</span>
+            orderNumber,
+            status,
+            quantity,
+            priceeach,
+            <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">as</span> quarter
+        <span class="hljs-keyword">FROM</span>
+            orders_1
+        <span class="hljs-keyword">UNION</span>
+        <span class="hljs-keyword">SELECT</span>
+            orderNumber,
+            status,
+            quantity,
+            priceeach,
+            <span class="hljs-string">&#x27;2&#x27;</span> <span class="hljs-keyword">as</span> quarter
+        <span class="hljs-keyword">FROM</span>
+            orders_2
+    ) <span class="hljs-keyword">AS</span> tabel_a
+<span class="hljs-keyword">WHERE</span>
+	status <span class="hljs-operator">=</span> &quot;Shipped&quot;
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<h3 id="perhitungan-growth-penjualan-dan-revenue">Perhitungan Growth Penjualan dan Revenue</h3>
+<p>Untuk project ini, perhitungan pertumbuhan penjualan akan dilakukan secara manual menggunakan formula yang disediakan di bawah. Adapun perhitungan pertumbuhan penjualan dengan SQL dapat dilakukan menggunakan “window function” yang akan dibahas di materi DQLab berikutnya.</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>%Growth Penjualan</mtext><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mn>6</mn><mo separator="true">,</mo><mn>717</mn><mtext>–</mtext><mn>8</mn><mo separator="true">,</mo><mn>694</mn><mo stretchy="false">)</mo></mrow><mrow><mn>8</mn><mo separator="true">,</mo><mn>694</mn></mrow></mfrac><mo>=</mo><mo>−</mo><mn>22</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\text{\%Growth Penjualan} = \frac{(6,717 – 8,694)}{8,694} = -22\%
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9444em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">%Growth Penjualan</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3074em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">694</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">717–8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">694</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">22%</span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>%Growth Revenue</mtext><mo>=</mo><mfrac><mrow><mn>607</mn><mo separator="true">,</mo><mn>548</mn><mo separator="true">,</mo><mn>320</mn><mtext>–</mtext><mn>799</mn><mo separator="true">,</mo><mn>579</mn><mo separator="true">,</mo><mn>310</mn></mrow><mrow><mn>799</mn><mo separator="true">,</mo><mn>579</mn><mo separator="true">,</mo><mn>310</mn></mrow></mfrac><mo>=</mo><mo>−</mo><mn>24</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\text{\%Growth Revenue} = \frac{607,548,320 – 799,579,310}{799,579,310} = -24\%
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord text"><span class="mord">%Growth Revenue</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2019em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">799</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">579</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">310</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">607</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">548</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">320–799</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">579</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">310</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">24%</span></span></span></span></span></p>
+<h2 id="chapter-4-customer-analytics">Chapter 4: Customer Analytics</h2>
+<h3 id="apakah-jumlah-customers-xyzcom-semakin-bertambah">Apakah jumlah customers <a href="http://xyz.com">xyz.com</a> semakin bertambah?</h3>
+<p>Penambahan jumlah customers dapat diukur dengan membandingkan total jumlah customers yang registrasi di periode saat ini dengan total jumlah customers yang registrasi diakhir periode sebelumnya.
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch4-p1.png"></p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	quarter,
+	<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID) <span class="hljs-keyword">as</span> total_customers
+<span class="hljs-keyword">FROM</span> (
+	<span class="hljs-keyword">SELECT</span>
+		customerID,
+		createDate,
+		QUARTER(createDate) <span class="hljs-keyword">as</span> quarter
+	<span class="hljs-keyword">FROM</span>
+		customer
+	<span class="hljs-keyword">WHERE</span>
+	createDate <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">&#x27;2004-01-01&#x27;</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">&#x27;2004-06-30&#x27;</span>
+	) <span class="hljs-keyword">AS</span> tabel_b
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<h3 id="seberapa-banyak-customers-tersebut-yang-sudah-melakukan-transaksi">Seberapa banyak customers tersebut yang sudah melakukan transaksi?</h3>
+<p>Problem ini merupakan kelanjutan dari problem sebelumnya yaitu dari sejumlah customer yang registrasi di periode quarter-1 dan quarter-2, berapa banyak yang sudah melakukan transaksi
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch4-p2.png"></p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span>
+	quarter,
+	<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID) <span class="hljs-keyword">as</span> total_customers
+<span class="hljs-keyword">FROM</span> ( 
+		<span class="hljs-keyword">SELECT</span>
+	  		customerID,
+	  		createDate,
+	  		QUARTER(createDate) <span class="hljs-keyword">as</span> quarter
+	  	<span class="hljs-keyword">FROM</span>
+	  		customer
+	  	<span class="hljs-keyword">WHERE</span>
+	  		createDate <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">&#x27;2004-01-01&#x27;</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">&#x27;2004-06-30&#x27;</span>
+	) <span class="hljs-keyword">AS</span> tabel_b
+<span class="hljs-keyword">WHERE</span>
+	customerID <span class="hljs-keyword">IN</span> (
+					<span class="hljs-keyword">SELECT</span>
+						<span class="hljs-keyword">DISTINCT</span> customerID
+					<span class="hljs-keyword">FROM</span> orders_1
+					<span class="hljs-keyword">UNION</span>
+					<span class="hljs-keyword">SELECT</span>
+						<span class="hljs-keyword">DISTINCT</span> customerID
+					<span class="hljs-keyword">FROM</span> orders_2
+					)
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">1</span> <span class="hljs-keyword">ASC</span>;
+</code></pre>
+<h3 id="category-produk-apa-saja-yang-paling-banyak-di-order-oleh-customers-di-quarter-2">Category produk apa saja yang paling banyak di-order oleh customers di Quarter-2?</h3>
+<p>Untuk mengetahui kategori produk yang paling banyak dibeli, maka dapat dilakukan dengan menghitung total order dan jumlah penjualan dari setiap kategori produk.</p>
+<p>Hasilnya sebagai berikut :
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch4-p3.png"></p>
+<pre><code class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> 
+<span class="hljs-keyword">FROM</span> 
+    (<span class="hljs-keyword">SELECT</span>
+        categoryid,
+        <span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> orderNumber) <span class="hljs-keyword">as</span> total_order,
+        <span class="hljs-built_in">SUM</span>(quantity) <span class="hljs-keyword">as</span> total_penjualan
+    <span class="hljs-keyword">FROM</span> (
+            <span class="hljs-keyword">SELECT</span>
+                productCode,
+                orderNumber,
+                quantity,
+                status,
+                <span class="hljs-keyword">LEFT</span>(productCode, <span class="hljs-number">3</span>) <span class="hljs-keyword">as</span> categoryid
+            <span class="hljs-keyword">FROM</span>
+                orders_2
+            <span class="hljs-keyword">WHERE</span>
+                status <span class="hljs-operator">=</span> &quot;Shipped&quot;
+            ) <span class="hljs-keyword">AS</span> tabel_c
+    <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+        <span class="hljs-number">1</span>) <span class="hljs-keyword">AS</span> c
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+	<span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>;
+</code></pre>
+<h3 id="seberapa-banyak-customers-yang-tetap-aktif-bertransaksi-setelah-transaksi-pertamanya">Seberapa banyak customers yang tetap aktif bertransaksi setelah transaksi pertamanya?</h3>
+<p>Mengetahui seberapa banyak customers yang tetap aktif menunjukkan apakah <a href="http://xyz.com">xyz.com</a> tetap digemari oleh customers untuk memesan kebutuhan bisnis mereka. Hal ini juga dapat menjadi dasar bagi tim product dan business untuk pengembangan product dan business kedepannya. Adapun metrik yang digunakan disebut <em>retention cohort</em>. Untuk project ini, kita akan menghitung retention dengan query SQL sederhana:</p>
+<p>Oleh karena baru terdapat 2 periode yang Quarter 1 dan Quarter 2, maka retention yang dapat dihitung adalah retention dari customers yang berbelanja di Quarter 1 dan kembali berbelanja di Quarter 2, sedangkan untuk customers yang berbelanja di Quarter 2 baru bisa dihitung retentionnya di Quarter 3.</p>
+<p>Hasilnya sebagai berikut :
+<br>
+<br>
+<img src="projects/images/dqlab-project-3/ch4-p4.png"></p>
+<pre><code class="language-sql"><span class="hljs-comment">/* Menghitung total unik customers yang transaksi di quarter_1 */</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID) <span class="hljs-keyword">as</span> total_customers <span class="hljs-keyword">FROM</span> orders_1;
+
+<span class="hljs-comment">/* output = 25 */</span>
+<span class="hljs-keyword">SELECT</span>
+	<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">AS</span> quarter,
+	(<span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> customerID)<span class="hljs-operator">/</span><span class="hljs-number">25</span>)<span class="hljs-operator">*</span><span class="hljs-number">100</span> <span class="hljs-keyword">as</span> Q2
+<span class="hljs-keyword">FROM</span>
+	orders_1
+<span class="hljs-keyword">WHERE</span>
+	customerID <span class="hljs-keyword">IN</span> (
+					<span class="hljs-keyword">SELECT</span>
+						<span class="hljs-keyword">DISTINCT</span> customerID
+					<span class="hljs-keyword">FROM</span>
+						orders_2
+					);
+</code></pre>
+<h2 id="chapter-5-penutup">Chapter 5: Penutup</h2>
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Berdasarkan data yang telah kita peroleh, Kita dapat menarik kesimpulan bahwa :</p>
+<ol>
+<li>Performance <a href="http://xyz.com">xyz.com</a> menurun signifikan di quarter ke-2, terlihat dari nilai penjualan dan revenue yang drop sebesar 20% dan 24%.</li>
+<li>Perolehan customer baru juga tidak terlalu baik, dan sedikit menurun dibandingkan <em>quarter</em> sebelumnya.</li>
+<li>Ketertarikan customer baru untuk berbelanja di <a href="http://xyz.com">xyz.com</a> masih kurang, hanya sekitar 56% saja yang sudah bertransaksi. Disarankan tim Produk untuk perlu mempelajari <em>behaviour customer</em> dan melakukan <em>product improvement</em>, sehingga <em>conversion rate</em> (<em>register to transaction</em>) dapat meningkat.</li>
+<li>Produk kategori S18 dan S24 berkontribusi sekitar 50% dari total order dan 60% dari total penjualan, sehingga <a href="http://xyz.com">xyz.com</a> sebaiknya fokus untuk pengembangan category S18 dan S24.</li>
+<li><em>Retention rate</em> customer <a href="http://xyz.com">xyz.com</a> juga sangat rendah yaitu hanya 24%, artinya banyak customer yang sudah bertransaksi di <em>quarter</em> 1 tidak kembali melakukan order di <em>quarter</em> ke-2 (<em>no repeat order</em>).</li>
+<li><a href="http://xyz.com">xyz.com</a> mengalami pertumbuhan negatif di <em>quarter</em> ke-2 dan perlu melakukan banyak improvement baik itu di sisi produk dan bisnis marketing, jika ingin mencapai target dan <em>positif growth</em> di <em>quarter</em> ke-3. Rendahnya <em>retention rate</em> dan <em>conversion rate</em> bisa menjadi diagnosa awal bahwa customer tidak tertarik/kurang puas/kecewa berbelanja di <a href="http://xyz.com">xyz.com</a>.</li>
+</ol>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
